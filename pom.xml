@@ -58,5 +58,6 @@
     </build>
   <modules>
     <module>sampleApi</module>
+    <module>SampleApi-ear</module>
   </modules>
 </project>
