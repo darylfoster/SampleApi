@@ -78,21 +78,21 @@ public class SampleResource
         responseContainer = "List"
     ) })
     @GET
-    @Path ("/api")
+    @Path ("/api/{sampleparameter}")
     @Produces (MediaType.APPLICATION_JSON)
     public Response returnApiSamples (@ApiParam (value = "sampleParameter")
-    @PathParam ("sampleParameter") String sampleParameter, @Context Request request)
+    @PathParam ("sampleparameter") String sampleParameter, @Context Request request)
     {
         SampleApiEntity sample1 = new SampleApiEntity ();
 
-        sample1.setDescription ("This is sample api entity one.");
+        sample1.setDescription ("This is sample api entity one. " + sampleParameter);
         sample1.setLevel (1);
         sample1.setSampleApiEntityId (UUID.randomUUID ());
         sample1.setTime (new Timestamp (System.currentTimeMillis ()));
 
         SampleApiEntity sample2 = new SampleApiEntity ();
 
-        sample2.setDescription ("This is sample api entity two.");
+        sample2.setDescription ("This is sample api entity two. " + sampleParameter);
         sample2.setLevel (2);
         sample2.setSampleApiEntityId (UUID.randomUUID ());
         sample2.setTime (new Timestamp (System.currentTimeMillis ()));
@@ -122,21 +122,21 @@ public class SampleResource
         responseContainer = "List"
     ) })
     @GET
-    @Path ("/model")
+    @Path ("/model/{sampleparameter}")
     @Produces (MediaType.APPLICATION_JSON)
     public Response returnModelSamples (@ApiParam (value = "sampleParameter")
-    @PathParam ("sampleParameter") String sampleParameter, @Context Request request)
+    @PathParam ("sampleparameter") String sampleParameter, @Context Request request)
     {
         SampleModelEntity sample1 = new SampleModelEntity ();
 
-        sample1.setDescription ("This is sample model entity one.");
+        sample1.setDescription ("This is sample model entity one. " + sampleParameter);
         sample1.setLevel (1);
         sample1.setSampleModelEntityId (UUID.randomUUID ());
         sample1.setTime (new Timestamp (System.currentTimeMillis ()));
 
         SampleModelEntity sample2 = new SampleModelEntity ();
 
-        sample2.setDescription ("This is sample model entity two.");
+        sample2.setDescription ("This is sample model entity two. " + sampleParameter);
         sample2.setLevel (2);
         sample2.setSampleModelEntityId (UUID.randomUUID ());
         sample2.setTime (new Timestamp (System.currentTimeMillis ()));
